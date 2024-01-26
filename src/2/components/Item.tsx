@@ -1,4 +1,5 @@
 import { FunctionComponent } from "react";
+import { Task } from "../types";
 
 /*
  * The ItemProps interface defines the types for the components props.
@@ -10,10 +11,22 @@ import { FunctionComponent } from "react";
  * and remove the ItemProps interface
  */
 
-interface ItemProps {}
+interface ItemProps {
+  task: Task;
+}
 
 const Item: FunctionComponent<ItemProps> = (props) => {
-  return <li>#Item goes here#</li>;
+  return (
+    <li>
+      <div className="form-check">
+        <label className="form-check-label">
+          {props.task.value}
+          <i className="input-helper"></i>
+        </label>
+      </div>{" "}
+      <i className="remove mdi mdi-close-circle-outline"></i>
+    </li>
+  );
 };
 
 export default Item;
