@@ -1,4 +1,164 @@
 /* DO NOT CHANGE THIS ROOT CLASS NAME*/
+@mixin glassmorphism() {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.2);
+}
 #task-1 {
-  /* Styles goes here */
+  $padding: 15px;
+  margin: auto;
+  color: white;
+  background-image: radial-gradient(
+      circle at 30% 86%,
+      rgba(255, 255, 255, 0.03) 0%,
+      rgba(255, 255, 255, 0.03) 8%,
+      transparent 8%,
+      transparent 92%
+    ),
+    radial-gradient(
+      circle at 55% 100%,
+      rgba(255, 255, 255, 0.03) 0%,
+      rgba(255, 255, 255, 0.03) 8%,
+      transparent 8%,
+      transparent 92%
+    ),
+    radial-gradient(
+      circle at 40% 75%,
+      rgba(255, 255, 255, 0.03) 0%,
+      rgba(255, 255, 255, 0.03) 6%,
+      transparent 6%,
+      transparent 94%
+    ),
+    radial-gradient(
+      circle at 7% 99%,
+      rgba(255, 255, 255, 0.03) 0%,
+      rgba(255, 255, 255, 0.03) 6%,
+      transparent 6%,
+      transparent 94%
+    ),
+    radial-gradient(
+      circle at 69% 76%,
+      rgba(255, 255, 255, 0.03) 0%,
+      rgba(255, 255, 255, 0.03) 6%,
+      transparent 6%,
+      transparent 94%
+    ),
+    radial-gradient(
+      circle at 2% 35%,
+      rgba(255, 255, 255, 0.03) 0%,
+      rgba(255, 255, 255, 0.03) 6%,
+      transparent 6%,
+      transparent 94%
+    ),
+    radial-gradient(
+      circle at 14% 48%,
+      rgba(255, 255, 255, 0.03) 0%,
+      rgba(255, 255, 255, 0.03) 6%,
+      transparent 6%,
+      transparent 94%
+    ),
+    radial-gradient(
+      circle at 28% 87%,
+      rgba(255, 255, 255, 0.04) 0%,
+      rgba(255, 255, 255, 0.04) 4%,
+      transparent 4%,
+      transparent 96%
+    ),
+    radial-gradient(
+      circle at 65% 14%,
+      rgba(255, 255, 255, 0.04) 0%,
+      rgba(255, 255, 255, 0.04) 4%,
+      transparent 4%,
+      transparent 96%
+    ),
+    radial-gradient(
+      circle at 51% 36%,
+      rgba(255, 255, 255, 0.04) 0%,
+      rgba(255, 255, 255, 0.04) 4%,
+      transparent 4%,
+      transparent 96%
+    ),
+    radial-gradient(
+      circle at 6% 93%,
+      rgba(255, 255, 255, 0.04) 0%,
+      rgba(255, 255, 255, 0.04) 4%,
+      transparent 4%,
+      transparent 96%
+    ),
+    linear-gradient(135deg, rgb(23, 233, 173), rgb(29, 24, 208));
+  border-radius: 10px;
+  padding: $padding;
+  height: calc(60vh);
+  form {
+    border-radius: 10px;
+    width: 30%;
+    margin: auto;
+    @include glassmorphism();
+  }
+  &,
+  .title,
+  .body,
+  .footer,
+  .field {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .title {
+    padding: $padding;
+    align-items: center;
+    border-radius: 10px 10px 0px 00px;
+    @include glassmorphism();
+    h1 {
+      margin: 0;
+    }
+  }
+  .body {
+    padding: $padding;
+    gap: 15px;
+    label {
+      margin-bottom: 5px;
+      // color: #212222;
+      font-weight: bold;
+    }
+    .field input {
+      font-size: 16px;
+      line-height: 28px;
+      padding: 2px 10px;
+      border: unset;
+      border-radius: 4px;
+      outline-color: rgb(47 43 161 / 48%);
+      background-color: rgb(255, 255, 255);
+      box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px,
+        rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px,
+        rgba(60, 66, 87, 0.16) 0px 0px 0px 1px, rgba(0, 0, 0, 0) 0px 0px 0px 0px,
+        rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px;
+    }
+  }
+  .footer {
+    text-align: center;
+    padding: $padding;
+    button {
+      @include glassmorphism();
+      color: #fff;
+      cursor: pointer;
+      padding: 0.5rem 1rem;
+      font-size: 1.25rem;
+      border-radius: 0.3rem;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      &:hover,
+      &:focus {
+        background: rgba(255, 255, 255, 0.1);
+        box-shadow: none;
+      }
+    }
+    .copyright {
+      color: rgba(255, 255, 255, 0.65);
+      margin-top: 1rem;
+      font-size: small;
+    }
+  }
 }

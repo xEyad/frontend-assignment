@@ -15,19 +15,31 @@ const Task1: FunctionComponent = () => {
   return (
     <div id="task-1">
       <form onSubmit={onSubmit}>
-        <label>Email</label>
-        <input
-          name="email"
-          onChange={(event) => setEmail(event.currentTarget.value)}
-          value={email}
-        />
-        <label>Password</label>
-        <input
-          name="password"
-          onChange={(event) => setPassword(event.currentTarget.value)}
-          value={password}
-        />
-        <button>Login</button>
+        <div className="title">
+          <h1>Sign in</h1>
+        </div>
+        <div className="body">
+          <div className="field">
+            <label>Email</label>
+            <input
+              name="email"
+              onChange={(event) => setEmail(event.currentTarget.value)}
+              value={email}
+            />
+          </div>
+          <div className="field">
+            <label>Password</label>
+            <input
+              name="password"
+              onChange={(event) => setPassword(event.currentTarget.value)}
+              value={password}
+            />
+          </div>
+        </div>
+        <div className="footer">
+          <button>Login</button>
+          <span className="copyright">&copy; Eyad 2024</span>
+        </div>
       </form>
     </div>
   );
