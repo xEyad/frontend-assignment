@@ -1,4 +1,40 @@
 /* DO NOT CHANGE THIS ROOT CLASS NAME*/
 #task-3 {
-  /* Styles goes here */
+  .inputs {
+    flex-grow: 1;
+    display: flex;
+    margin-bottom: 10px;
+    gap: 20px;
+    .searchField {
+      flex-grow: 1 !important;
+    }
+  }
+  ul,
+  li {
+    padding: 0;
+    margin: 0;
+  }
+  .item {
+    display: flex;
+    align-items: center;
+    .checkbox {
+      margin-left: 0;
+      padding-left: 0;
+    }
+    .task-name {
+      flex-grow: 1;
+      text-align: left;
+      justify-self: start;
+    }
+    .icon {
+      cursor: pointer;
+      margin: 0 20px;
+    }
+  }
+}
+
+#task-3,
+.list-wrapper {
+  display: flex;
+  flex-direction: column;
 }

@@ -2,6 +2,8 @@ import { FunctionComponent } from "react";
 import { Task } from "../types";
 import trash from "../../assets/trash.png";
 import { useTasksStore } from "../model/useTasksStore";
+import { Checkbox, IconButton } from "@mui/material";
+import DeleteOutlineSharpIcon from "@mui/icons-material/DeleteOutlineSharp";
 /*
  * The ItemProps interface defines the types for the components props.
  *
@@ -21,28 +23,27 @@ const Item: FunctionComponent<ItemProps> = (props) => {
   const changeTaskStatus = useTasksStore((state) => state.changeTaskStatus);
   const { task } = props;
   return (
-    <li>
-      <div className="form-check">
-        <label className="form-check-label">
-          <input
-            className="checkbox"
-            type="checkbox"
-            checked={task.isCompleted}
-            onChange={(ev) => changeTaskStatus(task.id, ev.target.checked)}
-          />
-          {task.value}
-          <i className="input-helper"></i>
-        </label>
-        <img
-          src={trash}
-          alt=""
-          width={24}
-          height={24}
+    <li className="item">
+      <Checkbox
+        className="checkbox"
+        checked={task.isCompleted}
+        onChange={(ev) => changeTaskStatus(task.id, ev.target.checked)}
+      />
+      <span
+        className="task-name"
+        style={{
+          textDecoration: task.isCompleted ? "line-through" : "",
+        }}
+      >
+        {task.value}
+      </span>
+      <IconButton className="icon" aria-label="delete">
+        <DeleteOutlineSharpIcon
           onClick={() => {
             deleteTask(task.id);
           }}
         />
-      </div>
+      </IconButton>
     </li>
   );
 };
