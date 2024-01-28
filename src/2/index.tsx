@@ -1,4 +1,11 @@
-import { FunctionComponent, useRef, useState } from "react";
+import {
+  FunctionComponent,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 
 // Components
 import Input from "./components/Input";
@@ -15,18 +22,28 @@ const tasks: Task[] = [
 
 const Task2: FunctionComponent = () => {
   const [visibleTasks, setvisibleTasks] = useState(tasks);
+  const [searchVal, setsearchVal] = useState("");
+  const [finalSearchVal, setfinalSearchVal] = useState("");
   const debounceFn = useRef<NodeJS.Timeout>();
+  const filterFn = useCallback(() => {
+    const val = searchVal.toLowerCase();
+    return tasks.filter((t) => t.value.toLowerCase().includes(val));
+  }, [finalSearchVal]);
+
+  useEffect(() => {
+    setvisibleTasks(filterFn);
+  }, [finalSearchVal]);
 
   const onSearch = (searchVal: string) => {
+    setsearchVal(searchVal);
     if (debounceFn.current) clearTimeout(debounceFn.current);
     debounceFn.current = setTimeout(() => {
-      const val = searchVal.toLowerCase();
-      setvisibleTasks(tasks.filter((t) => t.value.toLowerCase().includes(val)));
+      setfinalSearchVal(searchVal);
     }, 500);
   };
   return (
     <div>
-      <Input onChange={onSearch} />
+      <Input onChange={onSearch} value={searchVal} />
       <br />
       <List list={visibleTasks} />
     </div>

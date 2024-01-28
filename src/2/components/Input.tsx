@@ -12,6 +12,7 @@ import { FunctionComponent } from "react";
 
 interface InputProps {
   onChange: (searchValue: string) => void;
+  value: string;
 }
 
 const Input: FunctionComponent<InputProps> = (props) => {
@@ -21,6 +22,7 @@ const Input: FunctionComponent<InputProps> = (props) => {
         type="text"
         className="form-control todo-list-input"
         placeholder="Search the list"
+        value={props.value}
         onChange={(ev) => {
           props.onChange(ev.target.value);
         }}
